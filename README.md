@@ -1,87 +1,79 @@
-# Welcome to React Router!
+# Frontend Submission Test
 
-A modern, production-ready template for building full-stack React applications using React Router.
+Production-ready **React (Vite + TypeScript)** SPA with:
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+- TailwindCSS
+- React Router DOM
+- Axios
+- React Hook Form + Zod
+- React Hot Toast
+- JWT auth via LocalStorage
+- Docker (Nginx) + Docker Compose
 
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
-
-## Getting Started
-
-### Installation
-
-Install the dependencies:
+## Cara install
 
 ```bash
 npm install
 ```
 
-### Development
+## Cara run local
 
-Start the development server with HMR:
+1) Copy env:
+
+```bash
+copy .env.example .env
+```
+
+2) Jalankan:
 
 ```bash
 npm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+App akan jalan di `http://localhost:5173`.
 
-## Building for Production
-
-Create a production build:
+## Cara run docker
 
 ```bash
-npm run build
+docker compose up --build
 ```
 
-## Deployment
+Open `http://localhost:8080`.
 
-### Docker Deployment
+## Demo credential login
 
-To build and run using Docker:
+Gunakan credential dari API:
+
+- **username**: `john@mail.com` (mapped ke `email`)
+- **password**: `changeme`
+
+## Coding Rules
+
+- **TypeScript strict typing**: `tsconfig.json` memakai `"strict": true`
+- **Hindari `any`**: tidak menggunakan `any` di codebase (kecuali terpaksa dari library, dihindari)
+- **Reusable components** (wajib ada):
+  - `src/components/ProductCard.tsx`
+  - `src/components/SearchBar.tsx`
+  - `src/components/Pagination.tsx`
+  - `src/routes/ProtectedRoute.tsx`
+- **Custom hook**:
+  - `src/hooks/useProducts.ts` (state management produk via React Context)
+- **ENV**:
+  - `VITE_API_URL=https://api.escuelajs.co/api/v1` (lihat `.env.example`)
+
+## Final Output (langsung bisa dijalankan)
+
+Local:
 
 ```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
+npm install
+npm run dev
 ```
 
-The containerized application can be deployed to any platform that supports Docker, including:
+Docker:
 
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
+```bash
+docker compose up --build
 ```
 
-## Styling
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
